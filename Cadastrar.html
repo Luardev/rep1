@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="shortcut icon" href="database_enter_icon_155538.ico" type="image/x-icon">
+    <link rel="stylesheet" type='text/css' href="stilo.css">
+    <script>
+        function passou(){
+            document.getElementById('botao').style.fontSize='17px'
+            document.getElementById('botao').style.border='1px solid black'
+        }
+        function npassou(){
+            document.getElementById('botao').style.fontSize='13px'
+            document.getElementById('botao').style.border='none'
+        }
+        function passou2(){
+            document.getElementById('botao2').style.fontSize='17px'
+            document.getElementById('botao2').style.border='1px solid black'
+        }
+        function npassou2(){
+            document.getElementById('botao2').style.fontSize='13px'
+            document.getElementById('botao2').style.border='none'
+        }
+        function voltar(){
+            window.location.assign("http://localhost/projetinho/Login.html")
+        }
+        document.addEventListener('DOMContentLoaded',function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            const errop = document.getElementById('perro');
+            errop.style.fontSize='17px';
+            if (error === 'jaexist'){
+                errop.style.padding='5px';
+                errop.style.backgroundColor='rgb(180,0,0)';
+                errop.style.borderRadius='5px';
+                errop.textContent = 'Estes dados já foram cadastrados !';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }else if (error === 'cadastrado'){
+                errop.textContent = 'Dados cadastrados com sucesso!';
+                errop.style.backgroundColor='green';
+                errop.style.borderRadius='5px';
+                errop.style.padding='5px';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }else if (error === 'ncadastrado'){
+                errop.style.backgroundColor='orange';
+                errop.style.borderRadius='5px';
+                errop.style.padding='5px';
+                errop.textContent = 'Erro ao Cadastrar';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }if( errop === 'nomegrande'){
+                errop.style.backgroundColor='rgb(77, 166, 169)';
+                errop.style.borderRadius='5px';
+                errop.style.padding='5px';
+                errop.textContent = 'Erro ao Cadastrar, Nome de usuário superior à 30 caracteres.';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }else if( errop === 'senhagrande'){
+                errop.style.backgroundColor='rgb(70, 160, 160)';
+                errop.style.borderRadius='5px';
+                errop.style.padding='5px';
+                errop.textContent = 'Erro ao Cadastrar, Senha de usuário superior à 15 caracteres.';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }
+        })
+    </script>
+</head>
+<body>
+    <fieldset><br>
+        <form method='POST' action="Cadastrar.php">
+            <label for='Nome'> Digite seu nome para cadastro: </label>
+            <input type='text' name='Nome' required placeholder="Seu nome" autocomplete="Nome"><br><br>
+            <label for='senha'> Digite sua senha para cadastro: </label>
+            <input type='password' name='Senha'  required placeholder="Sua senha" autocomplete="Senha"><br><br>
+            <input type='submit' name='enviar' id='botao' value='Cadastrar' onmousemove="passou()" onmouseout="npassou()">
+            <button type="button" id="botao2" onclick="voltar()" onmousemove="passou2()" onmouseout="npassou2()"> Login </button>
+        </fomr>
+        <p id='perro'></p>
+    </fieldset>
+</body>
+</html>

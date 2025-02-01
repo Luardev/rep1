@@ -1,0 +1,14 @@
+substr($string, $start, $length): Retorna uma parte da string especificada pelos parâmetros de início e comprimento.
+$texto = "Olá, Mundo!";
+$subTexto = substr($texto, 4, 5);
+echo $subTexto; // Output: , Mun
+
+str_replace($search, $replace, $subject): Substitui todas as ocorrências de uma string por outra em uma string.
+$texto = "Olá, Mundo!";
+$novoTexto = str_replace("Mundo", "PHP", $texto);
+echo $novoTexto; // Output: Olá, PHP!
+
+A função strlen() em PHP é utilizada para obter o comprimento de uma string. Ela retorna o número de caracteres presentes na string fornecida.
+$string = "Olá, Mundo!";
+$tamanho = strlen($string);
+echo "O comprimento da string é: " . $tamanho; // Output: 12

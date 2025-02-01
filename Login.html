@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="login_gov_icon_146024.ico" type="image/x-icon">
+    <link rel="stylesheet" type='text/css' href="stilo.css">
+    <script>
+        const delay = (delayInms) => {
+            return new Promise(resolve => setTimeout(resolve, delayInms));
+        };
+        function passou(){
+            document.getElementById('botao').style.fontSize='17px'
+            document.getElementById('botao').style.border='1px solid black'
+        }
+        function npassou(){
+            document.getElementById('botao').style.fontSize='13px'
+            document.getElementById('botao').style.border='none'
+        }
+        function passou2(){
+            document.getElementById('botao2').style.fontSize='17px'
+            document.getElementById('botao2').style.border='1px solid black'
+        }
+        function npassou2(){
+            document.getElementById('botao2').style.fontSize='13px'
+            document.getElementById('botao2').style.border='none'
+        }
+        function pg(){
+            window.location.assign("http://localhost/projetinho/Cadastrar.html")
+        }
+        document.addEventListener('DOMContentLoaded',function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            const errop = document.getElementById('perro');
+            if (error === 'incorrect'){
+                errop.textContent = 'Usuário ou senha incorretos!';
+                errop.style.padding='5px';
+                errop.style.backgroundColor='rgb(180,0,0)';
+                errop.style.borderRadius='5px';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }else if (error === 'exist'){
+                errop.textContent = 'Usuário não existe!';
+                errop.style.padding='5px';
+                errop.style.backgroundColor='rgb(180,0,0)';
+                errop.style.borderRadius='5px';
+                setTimeout(() => {
+                errop.textContent = '';
+                errop.style.padding='0%';
+                }, 2000);
+            }
+        })
+    </script>
+</head>
+<body>
+    <fieldset><br>
+        <form method='POST' action="Login.php" autocomplete="on">
+            <label for='Nome'> Digite seu nome: </label>
+            <input type='text' name='Nome' required placeholder="Seu Nome" autocomplete="Nome"><br><br>
+            <label for='senha'> Digite sua senha: </label>
+            <input type='password' name='senha' required placeholder="Sua senha" autocomplete="senha"><br><br>
+            <input type='submit' name='enviar' id='botao' value='Enviar' onmousemove="passou()" onmouseout="npassou()">
+            <button type="button" onclick="pg()" id='botao2' onmousemove="passou2()" onmouseout="npassou2()"> Cadastrar </button>
+        </form>
+        <p id='perro'> </p>
+    </fieldset>
+</body>
+</html>

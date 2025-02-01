@@ -1,0 +1,52 @@
+input[type='submit']{
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type='password']{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    box-shadow: 5px 5px 5px rgba(3, 73, 119, 0.267);
+}
+input[type='text']{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    box-shadow: 5px 5px 5px rgba(3, 73, 119, 0.267);
+}
+label{
+    display: block;
+    margin-bottom: 5px;;
+}
+fieldset{
+    text-align: center;
+    margin: 15% 40%;
+    border-radius: 8px;
+    box-shadow: 10px 10px 5px rgb(0,0,0,0.3);
+	background-color:lightblue;
+	opacity:0.95;
+}
+body{
+    background-image: url('php.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+button{
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.centro{
+    text-align: center;
+    margin-top: 5%;
+}
